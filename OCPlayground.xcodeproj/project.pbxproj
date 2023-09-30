@@ -7,7 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BF6DC6FC2AC8394600596448 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = BF6DC6FB2AC8394600596448 /* main.c */; };
+		BF6DC6FC2AC8394600596448 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = BF6DC6FB2AC8394600596448 /* main.c */; settings = {COMPILER_FLAGS = "-xobjective-c"; }; };
+		BF6DC7082AC83A2D00596448 /* device.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6DC7072AC83A2D00596448 /* device.m */; };
+		BF6DC70E2AC8626500596448 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF6DC70D2AC8626500596448 /* Foundation.framework */; };
+		BF6DC7102AC8626B00596448 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF6DC70F2AC8626B00596448 /* Cocoa.framework */; };
+		BF6DC7122AC8627200596448 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF6DC7112AC8627200596448 /* Metal.framework */; };
+		BF6DC7142AC8635900596448 /* commandQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6DC7132AC8635900596448 /* commandQueue.m */; };
+		BF6DC7192AC863DE00596448 /* platform_macos.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6DC7182AC863DE00596448 /* platform_macos.m */; };
+		BF6DC71B2AC863FC00596448 /* WindowDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6DC71A2AC863FC00596448 /* WindowDelegate.m */; };
+		BF6DC71D2AC8640C00596448 /* ApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6DC71C2AC8640C00596448 /* ApplicationDelegate.m */; };
+		BF6DC7222AC8716A00596448 /* commandBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6DC7212AC8716A00596448 /* commandBuffer.m */; };
+		BF6DC7312AC87B0300596448 /* renderPassDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6DC7302AC87B0300596448 /* renderPassDescriptor.m */; };
+		BF6DC7352AC87C9600596448 /* renderCommandEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6DC7342AC87C9600596448 /* renderCommandEncoder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +36,29 @@
 /* Begin PBXFileReference section */
 		BF6DC6F82AC8394600596448 /* OCPlayground */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OCPlayground; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF6DC6FB2AC8394600596448 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		BF6DC7072AC83A2D00596448 /* device.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = device.m; sourceTree = "<group>"; };
+		BF6DC7092AC83A5400596448 /* common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
+		BF6DC70D2AC8626500596448 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BF6DC70F2AC8626B00596448 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		BF6DC7112AC8627200596448 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		BF6DC7132AC8635900596448 /* commandQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = commandQueue.m; sourceTree = "<group>"; };
+		BF6DC7172AC863CD00596448 /* platform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = platform.h; sourceTree = "<group>"; };
+		BF6DC7182AC863DE00596448 /* platform_macos.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = platform_macos.m; sourceTree = "<group>"; };
+		BF6DC71A2AC863FC00596448 /* WindowDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WindowDelegate.m; sourceTree = "<group>"; };
+		BF6DC71C2AC8640C00596448 /* ApplicationDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplicationDelegate.m; sourceTree = "<group>"; };
+		BF6DC71E2AC8661E00596448 /* ApplicationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplicationDelegate.h; sourceTree = "<group>"; };
+		BF6DC71F2AC8662800596448 /* WindowDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowDelegate.h; sourceTree = "<group>"; };
+		BF6DC7212AC8716A00596448 /* commandBuffer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = commandBuffer.m; sourceTree = "<group>"; };
+		BF6DC7292AC871D300596448 /* device.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = device.h; sourceTree = "<group>"; };
+		BF6DC72B2AC871F100596448 /* metal_types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = metal_types.h; sourceTree = "<group>"; };
+		BF6DC72C2AC871FC00596448 /* CMetal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMetal.h; sourceTree = "<group>"; };
+		BF6DC72D2AC8720900596448 /* commandQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commandQueue.h; sourceTree = "<group>"; };
+		BF6DC72E2AC8721400596448 /* commandBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commandBuffer.h; sourceTree = "<group>"; };
+		BF6DC72F2AC87AF100596448 /* renderPassDescriptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = renderPassDescriptor.h; sourceTree = "<group>"; };
+		BF6DC7302AC87B0300596448 /* renderPassDescriptor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = renderPassDescriptor.m; sourceTree = "<group>"; };
+		BF6DC7322AC87B4600596448 /* enums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = enums.h; sourceTree = "<group>"; };
+		BF6DC7332AC87C8000596448 /* renderCommandEncoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = renderCommandEncoder.h; sourceTree = "<group>"; };
+		BF6DC7342AC87C9600596448 /* renderCommandEncoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = renderCommandEncoder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +66,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF6DC7122AC8627200596448 /* Metal.framework in Frameworks */,
+				BF6DC7102AC8626B00596448 /* Cocoa.framework in Frameworks */,
+				BF6DC70E2AC8626500596448 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +80,7 @@
 			children = (
 				BF6DC6FA2AC8394600596448 /* OCPlayground */,
 				BF6DC6F92AC8394600596448 /* Products */,
+				BF6DC70C2AC8626500596448 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +95,71 @@
 		BF6DC6FA2AC8394600596448 /* OCPlayground */ = {
 			isa = PBXGroup;
 			children = (
+				BF6DC7152AC863AC00596448 /* Platform */,
+				BF6DC7022AC8396000596448 /* Lib */,
 				BF6DC6FB2AC8394600596448 /* main.c */,
 			);
 			path = OCPlayground;
+			sourceTree = "<group>";
+		};
+		BF6DC7022AC8396000596448 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				BF6DC7092AC83A5400596448 /* common.h */,
+				BF6DC7052AC839A900596448 /* implementation */,
+				BF6DC7042AC839A000596448 /* headers */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		BF6DC7042AC839A000596448 /* headers */ = {
+			isa = PBXGroup;
+			children = (
+				BF6DC7292AC871D300596448 /* device.h */,
+				BF6DC72B2AC871F100596448 /* metal_types.h */,
+				BF6DC72C2AC871FC00596448 /* CMetal.h */,
+				BF6DC72D2AC8720900596448 /* commandQueue.h */,
+				BF6DC72E2AC8721400596448 /* commandBuffer.h */,
+				BF6DC72F2AC87AF100596448 /* renderPassDescriptor.h */,
+				BF6DC7322AC87B4600596448 /* enums.h */,
+				BF6DC7332AC87C8000596448 /* renderCommandEncoder.h */,
+			);
+			path = headers;
+			sourceTree = "<group>";
+		};
+		BF6DC7052AC839A900596448 /* implementation */ = {
+			isa = PBXGroup;
+			children = (
+				BF6DC7072AC83A2D00596448 /* device.m */,
+				BF6DC7132AC8635900596448 /* commandQueue.m */,
+				BF6DC7212AC8716A00596448 /* commandBuffer.m */,
+				BF6DC7302AC87B0300596448 /* renderPassDescriptor.m */,
+				BF6DC7342AC87C9600596448 /* renderCommandEncoder.m */,
+			);
+			path = implementation;
+			sourceTree = "<group>";
+		};
+		BF6DC70C2AC8626500596448 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF6DC7112AC8627200596448 /* Metal.framework */,
+				BF6DC70F2AC8626B00596448 /* Cocoa.framework */,
+				BF6DC70D2AC8626500596448 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF6DC7152AC863AC00596448 /* Platform */ = {
+			isa = PBXGroup;
+			children = (
+				BF6DC7172AC863CD00596448 /* platform.h */,
+				BF6DC7182AC863DE00596448 /* platform_macos.m */,
+				BF6DC71A2AC863FC00596448 /* WindowDelegate.m */,
+				BF6DC71C2AC8640C00596448 /* ApplicationDelegate.m */,
+				BF6DC71E2AC8661E00596448 /* ApplicationDelegate.h */,
+				BF6DC71F2AC8662800596448 /* WindowDelegate.h */,
+			);
+			path = Platform;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,7 +219,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF6DC7352AC87C9600596448 /* renderCommandEncoder.m in Sources */,
 				BF6DC6FC2AC8394600596448 /* main.c in Sources */,
+				BF6DC7082AC83A2D00596448 /* device.m in Sources */,
+				BF6DC7192AC863DE00596448 /* platform_macos.m in Sources */,
+				BF6DC71B2AC863FC00596448 /* WindowDelegate.m in Sources */,
+				BF6DC7142AC8635900596448 /* commandQueue.m in Sources */,
+				BF6DC7222AC8716A00596448 /* commandBuffer.m in Sources */,
+				BF6DC71D2AC8640C00596448 /* ApplicationDelegate.m in Sources */,
+				BF6DC7312AC87B0300596448 /* renderPassDescriptor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,9 +352,12 @@
 		BF6DC7002AC8394600596448 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4P5CDH4GR2;
 				ENABLE_HARDENED_RUNTIME = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -254,9 +365,12 @@
 		BF6DC7012AC8394600596448 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4P5CDH4GR2;
 				ENABLE_HARDENED_RUNTIME = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
