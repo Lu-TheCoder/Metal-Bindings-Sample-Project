@@ -13,15 +13,19 @@ CF_RETURNS_RETAINED
 MT_API_AVAILABLE(mt_macos(10.11), mt_ios(8.0))
 MtRenderPassDescriptor*
 mtNewRenderPassDescriptor(void) {
-    return (__bridge MtRenderPassDescriptor *)([MTLRenderPassDescriptor new]);
+    @autoreleasepool {
+        return (__bridge_retained MtRenderPassDescriptor *)([MTLRenderPassDescriptor new]);
+    }
 }
 
-void
-mtReleaseRenderPassDescriptor(MtRenderPassDescriptor* rpassc) {
+void mtReleaseRenderPassDescriptor(MtRenderPassDescriptor* passdesc) {
     @autoreleasepool {
-//        [(__bridge MTLRenderPassDescriptor*)rpassc release];
+        if (passdesc){
+            MTLRenderPassDescriptor *pass = (__bridge MTLRenderPassDescriptor *)(passdesc);
+//            CFRelease((__bridge CFTypeRef)(pass));
+            CFRelease(CFBridgingRetain(pass));
+        }
     }
-//    return (__bridge MtRenderPassDescriptor *)([MTLRenderPassDescriptor new]);
 }
 
 MT_API_AVAILABLE(mt_macos(10.11), mt_ios(8.0))
@@ -31,11 +35,16 @@ mtSetRenderPassDescTexture(MtRenderPassDescriptor *pass,
                            MtTexture        *tex) {
     
     @autoreleasepool {
-        MTLRenderPassDescriptor *mpass;
+        MTLRenderPassDescriptor *mpasss;
         
-        mpass = (__bridge MTLRenderPassDescriptor *)(pass);
+        mpasss = (__bridge MTLRenderPassDescriptor *)(pass);
         
-        mpass.colorAttachments[colorAttch].texture = (__bridge id<MTLTexture> _Nullable)(tex);
+        mpasss.colorAttachments[colorAttch].texture = (__bridge id<MTLTexture> _Nullable)(tex);
+        
+//        id<MTLTexture> text = (__bridge id<MTLTexture>)(tex);
+        
+        id<MTLTexture> text = (__bridge id<MTLTexture>)(tex);
+        CFRelease((__bridge CFTypeRef)(text));
     }
    
 }

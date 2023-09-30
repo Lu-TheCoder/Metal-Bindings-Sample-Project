@@ -16,7 +16,7 @@ MtRenderPassDescriptor*
 mtNewRenderPassDescriptor(void);
 
 void
-mtReleaseRenderPassDescriptor(MtRenderPassDescriptor* rpassc);
+mtReleaseRenderPassDescriptor(MtRenderPassDescriptor* passdesc);
 
 MT_API_AVAILABLE(mt_macos(10.11), mt_ios(8.0))
 void

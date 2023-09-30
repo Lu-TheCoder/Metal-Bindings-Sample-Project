@@ -13,6 +13,8 @@
 MtCommandBuffer*
 mtNewCommandBuffer(MtCommandQueue *cmdq);
 
+void mtReleaseCommandBuffer(MtCommandBuffer *cmdb);
+
 MtCommandBuffer*
 mtNewCommandBufferWithUnretainedReferences(MtCommandQueue *cmdq);
 

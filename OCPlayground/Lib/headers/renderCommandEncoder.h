@@ -15,6 +15,8 @@ MT_API_AVAILABLE(mt_macos(10.11), mt_ios(8.0))
 MtRenderCommandEncoder*
 mtNewRenderCommandEncoder(MtCommandBuffer *cmdb, MtRenderPassDescriptor *pass);
 
+void mtReleaseRenderCommandEncoder(MtRenderCommandEncoder* rcEncoder);
+
 MT_API_AVAILABLE(mt_macos(10.11), mt_ios(8.0))
 void
 mtSetFrontFacingWinding(MtRenderCommandEncoder *rce, MtWinding winding);

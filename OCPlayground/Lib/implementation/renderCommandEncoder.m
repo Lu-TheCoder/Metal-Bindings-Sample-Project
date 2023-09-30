@@ -13,7 +13,19 @@ CF_RETURNS_RETAINED
 MT_API_AVAILABLE(mt_macos(10.11), mt_ios(8.0))
 MtRenderCommandEncoder*
 mtNewRenderCommandEncoder(MtCommandBuffer *cmdb, MtRenderPassDescriptor *pass) {
-    return (__bridge MtRenderCommandEncoder *)([(__bridge id<MTLCommandBuffer>)cmdb renderCommandEncoderWithDescriptor: (__bridge MTLRenderPassDescriptor*)pass]);
+    @autoreleasepool {
+        return (__bridge_retained MtRenderCommandEncoder *)([(__bridge id<MTLCommandBuffer>)cmdb renderCommandEncoderWithDescriptor: (__bridge MTLRenderPassDescriptor*)pass]);
+    }
+}
+
+void mtReleaseRenderCommandEncoder(MtRenderCommandEncoder* rcEncoder) {
+    @autoreleasepool {
+        if (rcEncoder){
+            id<MTLRenderCommandEncoder> encoder = (__bridge id<MTLRenderCommandEncoder>)(rcEncoder);
+//            CFRelease((__bridge_retained CFTypeRef)(encoder));
+            CFRelease(CFBridgingRetain(encoder));
+        }
+    }
 }
 
 MT_API_AVAILABLE(mt_macos(10.11), mt_ios(8.0))

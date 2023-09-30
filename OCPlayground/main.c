@@ -38,16 +38,17 @@ int main(int argc, const char * argv[]) {
 //                id<CAMetalDrawable> drawable = window->layer.nextDrawable;
                 
                 if (drawable){
-                    MtCommandBuffer* commandBuffer = mtNewCommandBufferWithUnretainedReferences(commandQueue);
+                    MtCommandBuffer* commandBuffer = mtNewCommandBuffer(commandQueue);
                     
                     MtRenderPassDescriptor* passDescriptor = mtNewRenderPassDescriptor();
                     mtSetRenderPassDescTexture(passDescriptor, 0, (__bridge MtTexture *)(window->layer.nextDrawable.texture));
                     mtSetRenderPassDescLoadAction(passDescriptor, 0, MtLoadActionClear);
+                    mtSetRenderPassDescStoreAction(passDescriptor, 0, MtStoreActionStore);
                     mtSetClearColorRGBA(passDescriptor, 0, 0.1, 0.1, 0.1, 1.0);
                     
                     MtRenderCommandEncoder* commandEncoder = mtNewRenderCommandEncoder(commandBuffer, passDescriptor);
-                    free(passDescriptor);
-                    
+                    mtReleaseRenderPassDescriptor(passDescriptor);
+            
                     MtViewport* viewport = malloc(sizeof(MtViewport));
                     viewport->originX = 0;
                     viewport->originY = 0;
@@ -58,13 +59,17 @@ int main(int argc, const char * argv[]) {
                     
                     mtSetViewport(commandEncoder, viewport);
                     
+//                    free(viewport);
                     
                     mtEndEncoding(commandEncoder);
                     
                     mtCommandBufferPresentDrawable(commandBuffer, drawable);
                     mtCommandBufferCommit(commandBuffer);
+                    CFRelease(drawable);
                     
-//                    free(commandBuffer);
+                    mtReleaseRenderCommandEncoder(commandEncoder);
+                    mtReleaseCommandBuffer(commandBuffer);
+                    
                     
                 }else{
                     printf("NO DRAWABLE!\n");

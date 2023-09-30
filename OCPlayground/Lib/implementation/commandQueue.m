@@ -14,6 +14,9 @@ MtCommandQueue*
 mtNewCommandQueue(MtDevice *device) {
     // return [(id<MTLDevice>)device newCommandQueue];
     // return [(__bridge id<MTLDevice>)device newCommandQueue];
-    return (__bridge MtCommandQueue *)((id<MTLCommandQueue>)[(__bridge id<MTLDevice>)device newCommandQueue]);
+    @autoreleasepool {
+        return (__bridge_retained MtCommandQueue *)((id<MTLCommandQueue>)[(__bridge id<MTLDevice>)device newCommandQueue]);
+    }
+    
 }
 

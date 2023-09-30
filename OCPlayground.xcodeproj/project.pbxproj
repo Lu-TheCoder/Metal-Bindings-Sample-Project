@@ -352,7 +352,7 @@
 		BF6DC7002AC8394600596448 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4P5CDH4GR2;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -365,7 +365,7 @@
 		BF6DC7012AC8394600596448 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4P5CDH4GR2;
 				ENABLE_HARDENED_RUNTIME = YES;

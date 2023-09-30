@@ -13,7 +13,19 @@ MT_API_AVAILABLE(mt_macos(10.11), mt_ios(8.0))
 CF_RETURNS_RETAINED
 MtCommandBuffer*
 mtNewCommandBuffer(MtCommandQueue *cmdq){
-    return (__bridge MtCommandBuffer *)([(__bridge id<MTLCommandQueue>)cmdq commandBuffer]);
+    @autoreleasepool {
+        return (__bridge_retained MtCommandBuffer *)([(__bridge id<MTLCommandQueue>)cmdq commandBuffer]);
+    }
+}
+
+void mtReleaseCommandBuffer(MtCommandBuffer *cmdb){
+    @autoreleasepool {
+        if(cmdb){
+            id<MTLCommandBuffer> buffer = (__bridge id<MTLCommandBuffer>)cmdb;
+//            CFRelease((__bridge CFTypeRef)(buffer));
+            CFRelease(CFBridgingRetain(buffer));
+        }
+    }
 }
 
 /*
@@ -23,7 +35,7 @@ mtNewCommandBuffer(MtCommandQueue *cmdq){
 CF_RETURNS_RETAINED
 MtCommandBuffer*
 mtNewCommandBufferWithUnretainedReferences(MtCommandQueue *cmdq){
-    return (__bridge MtCommandBuffer *)([(__bridge id<MTLCommandQueue>)cmdq commandBufferWithUnretainedReferences]);
+    return (__bridge_retained MtCommandBuffer *)([(__bridge id<MTLCommandQueue>)cmdq commandBufferWithUnretainedReferences]);
 }
 
 void
