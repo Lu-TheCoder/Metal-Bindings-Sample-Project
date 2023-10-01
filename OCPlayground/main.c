@@ -30,6 +30,18 @@ int main(int argc, const char * argv[]) {
             printf("Failed to create QUE!!\n");
         }
         
+        //Note: Temporary placement
+        //Not sure if moving it outside the draw loop is a good idea but oh well.. its here for now
+        MtViewport* viewport = malloc(sizeof(MtViewport));
+        viewport->originX = 0;
+        viewport->originY = 0;
+        viewport->width = window->layer.drawableSize.width;
+        viewport->height = window->layer.drawableSize.height;
+        viewport->znear = 0;
+        viewport->zfar = 1;
+        
+        bool isviewportSet = false;
+        
         while(!GWindow_should_close(window)){
             
             @autoreleasepool {
@@ -48,24 +60,18 @@ int main(int argc, const char * argv[]) {
                     
                     MtRenderCommandEncoder* commandEncoder = mtNewRenderCommandEncoder(commandBuffer, passDescriptor);
                     mtReleaseRenderPassDescriptor(passDescriptor);
-            
-                    MtViewport* viewport = malloc(sizeof(MtViewport));
-                    viewport->originX = 0;
-                    viewport->originY = 0;
-                    viewport->width = window->layer.drawableSize.width;
-                    viewport->height = window->layer.drawableSize.height;
-                    viewport->znear = 0;
-                    viewport->zfar = 1;
-                    
-                    mtSetViewport(commandEncoder, viewport);
-                    
-//                    free(viewport);
+        
+                    //NOTE: Temporary
+                    //actually needs to be set only on initial app start and updated only on 'window-size-changed' events
+                    if (!isviewportSet){
+                        mtSetViewport(commandEncoder, viewport);
+                        isviewportSet = true;
+                    }
                     
                     mtEndEncoding(commandEncoder);
                     
                     mtCommandBufferPresentDrawable(commandBuffer, drawable);
                     mtCommandBufferCommit(commandBuffer);
-                    CFRelease(drawable);
                     
                     mtReleaseRenderCommandEncoder(commandEncoder);
                     mtReleaseCommandBuffer(commandBuffer);
