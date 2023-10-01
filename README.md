@@ -1,6 +1,8 @@
 # Metal-Bindings-Sample-Project
 This is my initial attempt to create C Metal-Bindings to use Metal purely in C..
 
+<img width="708" alt="Screenshot 2023-09-28 at 15 00 17" src="https://github.com/Lu-TheCoder/Metal-Bindings-Sample-Project/assets/90724319/09b27465-092b-49ba-83b5-94f017bc6362">
+
 
 ## Issues
 - Memory Leaks!
